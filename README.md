@@ -12,10 +12,6 @@
 
 <!-- ---------------------------------------------------------------------- -->
 
----
-
-<!-- ---------------------------------------------------------------------- -->
-
 <!-- MODELO DESCRIÇÃO SOBRE O PROJETO: -->
 ## 💻 Sobre o projeto
 
@@ -24,10 +20,6 @@ O projeto é um site criado para a empresa Bar e Lanchonete Cesão.
 
 O desafio proposto para este projeto era a criação de um site com o objetivo de facilitar o acesso ao cardápio e o contato para reserca do pedido. 
 
-<!-- LINHA DE DIVISÃO: -->
----
-
-<!-- ---------------------------------------------------------------------- -->
 
 <!-- MODELO FUNCIONALIDADES: -->
 ## ⚙️ Funcionalidades
@@ -58,8 +50,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 <!-- ---------------------------------------------------------------------- -->
 
 <!-- MODELO DE AUTOR-->
-## 🦸 Autor
+## 🦸 Autores
 
+<a href="linkedim">
+Artemia Vitoria</a>
 <a href="linkedim">
 Jhenifer Eduarda</a>
 <br />
@@ -67,12 +61,8 @@ Jhenifer Eduarda</a>
 Gustavo Pereira</a>
 <br />
 <a href="linkedim">
-Artemia Vitoria</a>
-<a href="linkedim">
 Vinicius Almedanha</a>
 <br />
  
-
-
 
 
