@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #000000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+}
+
+/* --- HEADER / TOPBAR --- */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 40px; /* Um pouco mais de respiro como no Figma */
+    border-bottom: 1px dotted rgba(255,255,255,0.15);
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    background-image: url(../imagens/logo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.nav {
+    display: flex;
+    gap: 28px;
+}
+
+.nav a {
+    color: #f0b33b;
+    text-decoration: underline; /* Linha embaixo igual ao Figma */
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.nav a:hover {
+    opacity: 0.8;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.first-text {
+    text-align: center;
+    font-size: 2.2rem; /* Um pouco mais robusto como no Figma */
+    font-weight: 700;
+    margin-top: 100px;
+    margin-bottom: 70px;
+}
+
+main {
+    flex: 1; /* Garante que empurra o footer pro final da tela */
+}
+
+.categorias {
+    width: min(1020px, 92%);
+    margin: 0 auto;
+    display: flex;         /* Mudamos de Grid para Flex */
+    flex-wrap: wrap;       /* Permite que os cards que não couberem quebrem de linha */
+    justify-content: center; /* CENTRALIZA os elementos de cada linha! */
+    gap: 45px 24px;        /* Mantém o espaçamento vertical e horizontal */
+    padding-bottom: 120px;
+}
+
+/* --- CARDS DE CATEGORIAS --- */
+.card {
+    text-align: center;
+    gap: 24px; /* Calcula o tamanho para caberem exatamente 4 cards por linha */
+    min-width: 200px;        /* Impede que eles fiquem esmagados em telas menores */
+    justify-content: center;
+
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-4px); /* Eleva levemente o card */
+    opacity: 0.9;
+}
+
+.card img {
+    width: 100%;
+    height: 180px; /* Aumentado para corrigir a proporção achatada */
+    object-fit: cover;
+    border-radius: 14px; /* Borda mais arredondada */
+    display: block;
+}
+
+.card p {
+    margin-top: 16px;
+    font-size: 15px;
+    font-weight: 700; /* Texto em negrito bem marcado */
+    color: #fff;
+    letter-spacing: 0.5px; /* Pequeno espaçamento entre letras para dar mais presença */
+}
+
+/*--- FOOTER --- */
+.footer {
+    background: #f6a000;
+    color: #1d1200;
+    padding: 50px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-left {
+    max-width: 450px;
+}
+
+.footer-left h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.footer-left p {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.footer-left span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    text-align: right;
+    align-items: flex-end;
+}
+
+.social p {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.icons {
+    display: flex;
+    gap: 14px;
+}
+
+.icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #000;
+    color: #f6a000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.icons a:hover {
+    transform: scale(1.08);
+}
+
+.contato-rapido p {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.contato-rapido strong {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 950px) {
+    .categorias {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .topbar {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .footer-right {
+        align-items: center;
+        text-align: center;
+    }
+    .icons {
+        justify-content: center;
+    }
+}

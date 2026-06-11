@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #000000; 
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- HEADER / TOPBAR --- */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 80px; 
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.15);
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    background-image: url(../imagens/logo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.nav {
+    display: flex;
+    gap: 35px;
+}
+
+.nav a {
+    color: #f0b33b;
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.nav a:hover {
+    opacity: 0.8;
+}
+
+main {
+    flex: 1;
+    padding-bottom: 100px;
+}
+
+/* --- SEÇÃO ÍCONES (SUPERIOR) --- */
+.icones-categorias {
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.item-categoria {
+    text-align: center;
+    width: 110px;
+    text-decoration: none; /* Remove o sublinhado padrão de link */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Efeito ao passar o mouse nos ícones do topo */
+.item-categoria:hover {
+    transform: scale(1.05); /* Dá um leve zoom no ícone */
+    opacity: 0.8;
+}
+
+.item-categoria img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.item-categoria p {
+    font-size: 11px;
+    font-weight: 600;
+    color: #a5a5a5; /* Mantém a cor cinza estilosa */
+}
+
+/* --- TÍTULO PRINCIPAL --- */
+.first-text {
+    max-width: 1100px;
+    margin: 60px auto 40px auto;
+    padding: 0 40px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: left; /* Alinhado à esquerda conforme o print */
+}
+
+/* --- GRID DE PRODUTOS (BEBIDAS FRIAS) --- */
+/* --- ESTILIZAÇÃO DAS NOVAS SUB-CATEGORIAS --- */
+.container-bebidas {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.bloco-categoria {
+    margin-bottom: 60px; /* Dá um espaço considerável entre uma categoria e outra */
+}
+
+.titulo-subcategoria {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f6a000; /* Destaque em amarelo/laranja igual ao seu rodapé */
+    margin: 0 auto 24px auto;
+    padding: 0 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Garante o ajuste correto dos paddings laterais nas listas */
+.grid-produtos {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Se sobrarem 2 itens na última linha, eles centralizam */
+    gap: 24px;
+}
+/* --- COMPORTAMENTO DOS CARDS CLICÁVEIS --- */
+.card-produto {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    
+    /* Faz o cálculo exato para caberem 4 itens por linha menos o gap */
+    width: calc(25% - 18px); 
+    
+    /* IMPORTANTE: Permite que o card diminua em telas menores, sem travar em um tamanho fixo */
+    min-width: 160px; 
+}
+
+/* Ajuste na imagem para que ela acompanhe a redução do card proporcionalmente */
+.card-produto .img-wrapper {
+    width: 100%;
+    /* Substituído de 'height: 240px' fixo para uma proporção baseada na largura */
+    aspect-ratio: 1 / 1.1; 
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #121212;
+}
+
+.card-produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-produto p {
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff; /* Garante que o texto continue branco mesmo sendo um link */
+    text-align: left;
+}
+
+/* --- PREÇO DOS PRODUTOS --- */
+.preco-produto {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #f6a000; /* Amarelo ouro igual ao rodapé */
+    text-align: left;
+}
+
+.card-produto:hover {
+    transform: scale(1.05);
+}
+
+/*--- FOOTER --- */
+.footer {
+    background: #f6a000;
+    color: #1d1200;
+    padding: 50px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-left {
+    max-width: 450px;
+}
+
+.footer-left h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.footer-left p {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.footer-left span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    text-align: right;
+    align-items: flex-end;
+}
+
+.social p {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.icons {
+    display: flex;
+    gap: 14px;
+}
+
+.icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #000;
+    color: #f6a000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.icons a:hover {
+    transform: scale(1.08);
+}
+
+.contato-rapido p {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.contato-rapido strong {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/* --- RESPONSIVIDADE --- */
+
+/* Telas de Tablets e Celulares deitados (Até 850px) */
+@media (max-width: 850px) {
+    .topbar {
+        padding: 20px 40px;
+    }
+    .footer {
+        flex-direction: column;
+        padding: 40px;
+        text-align: center;
+        align-items: center;
+    }
+    .footer-right {
+        align-items: center;
+        text-align: center;
+    }
+    .first-text {
+        text-align: center;
+        font-size: 2rem;
+        margin: 40px auto 20px auto;
+    }
+    
+    /* Faz o grid passar a exibir 3 colunas em tablets */
+    .card-produto {
+        width: calc(33.333% - 16px);
+    }
+}
+
+/* Telas de Celulares Verticais (Até 580px) */
+@media (max-width: 580px) {
+    .grid-produtos {
+        padding: 0 16px; /* Reduz a lateral para dar mais espaço aos produtos */
+        gap: 16px;       /* Diminui o espaço entre os cards para caberem melhor */
+    }
+
+    .card-produto {
+        /* Define exatamente duas colunas (50% menos o espaço do gap) */
+        width: calc(50% - 8px); 
+        min-width: 140px; /* Permite que o card encolha o suficiente em telas pequenas */
+    }
+
+    .card-produto p {
+        font-size: 13px; /* Diminui levemente o texto do produto no celular */
+        margin-top: 8px;
+    }
+    
+    .titulo-subcategoria {
+        font-size: 1.2rem;
+        padding: 0 16px;
+        margin-bottom: 16px;
+    }
+}
+
+/* Telas de Celulares muito pequenos (Até 360px) */
+@media (max-width: 360px) {
+    .card-produto {
+        min-width: 130px; /* Garante que mesmo em telas bem antigas/pequenas ainda fiquem 2 colunas */
+    }
+}

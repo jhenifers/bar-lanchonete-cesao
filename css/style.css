@@ -1,0 +1,698 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E RESETS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background: #000000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. NAVBAR & MENU DESKTOP
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: transparent;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* ALTERADO: Usando o ID + Classe para garantir poder máximo no Desktop */
+#menu-links.nav-links {
+    display: flex !important;
+    /* O !important garante que ele ignore qualquer display:none residual */
+    gap: 30px;
+}
+
+#menu-links.nav-links a {
+    color: #f0b33b;
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+#menu-links.nav-links a:hover {
+    opacity: 0.8;
+}
+
+
+/* Escondido no Desktop por padrão */
+i#burguer {
+    display: none;
+    color: #f0b33b;
+    /* Laranja Mostarda */
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 10001;
+    /* Fica acima de tudo */
+}
+
+i#burguer:hover {
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   3. HERO SECTION (BANNER COM FOTO DE FUNDO)
+   ========================================================================== */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('../imagens/fundo1920x1080.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 60px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    max-width: 600px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-primary,
+.btn-secondary {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #ffffff;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+/* ==========================================================================
+   4. SEÇÃO FAVORITOS
+   ========================================================================== */
+.secao-favoritos {
+    padding: 80px 50px;
+    background-color: #000000;
+    text-align: center;
+}
+
+.secao-favoritos h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.coxinha-card,
+.assado-card,
+.lanche-card,
+.pastel-card {
+    background-color: #111111;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    text-align: left;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.coxinha-card:hover,
+.assado-card:hover,
+.lanche-card:hover,
+.pastel-card:hover {
+    transform: translateY(-5px);
+}
+
+.coxinha-card img,
+.assado-card img,
+.lanche-card img,
+.pastel-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.coxinha-info,
+.assado-info,
+.lanche-info,
+.pastel-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.coxinha-info h3,
+.assado-info h3,
+.lanche-info h3,
+.pastel-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.coxinha-info p,
+.assado-info p,
+.lanche-info p,
+.pastel-info p {
+    font-size: 0.85rem;
+    color: #aaaaaa;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.botao-card {
+    display: block;
+    text-align: center;
+    background-color: transparent;
+    color: #ff9f1c;
+    border: 1px solid #ff9f1c;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.botao-card:hover {
+    background-color: #ff9f1c;
+    color: #000000;
+}
+
+.category-grid>p {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #777777;
+    font-size: 1rem;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   5. SEÇÃO SOBRE NÓS
+   ========================================================================== */
+.about {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('./imagens/assadosfundo.jpeg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-content {
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.about-content .subtitle {
+    color: #ff9f1c;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ==========================================================================
+   6. COMO RESERVAR
+   ========================================================================== */
+.how-to-order {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #000000;
+}
+
+.how-to-order h2,
+.faq h2 {
+    color: #ff9f1c;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto 40px auto;
+}
+
+.pedido-card,
+.sacola-card,
+.whatsapp-card,
+.delivery-card {
+    background: #0a0a0a;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.pedido-img,
+.sacola-img,
+.whatsapp-img,
+.delivery-img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    background-color: #ffffff;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.pedido-card p,
+.sacola-card p,
+.whatsapp-card p,
+.delivery-card p {
+    font-size: 0.95rem;
+    color: #dddddd;
+    line-height: 1.4;
+}
+
+.botaoreserva {
+    background-color: #ff9f1c;
+    color: #000000;
+    border: 2px solid #ff9f1c;
+    padding: 15px 35px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.botaoreserva:hover {
+    background-color: transparent;
+    color: #ff9f1c;
+}
+
+/* ==========================================================================
+   7. FAQ (ACCORDION)
+   ========================================================================== */
+.faq {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #222222;
+    padding-bottom: 10px;
+}
+
+.faq-question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    color: #aaaaaa;
+}
+
+/* ==========================================================================
+   8. RODAPÉ
+   ========================================================================== */
+.footer {
+    background: #f6a000;
+    color: #1d1200;
+    padding: 50px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-left {
+    max-width: 450px;
+}
+
+.footer-left h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.footer-left p {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.footer-left span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: right;
+    align-items: flex-end;
+}
+
+.social p {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.icons {
+    display: flex;
+    gap: 14px;
+}
+
+.icons i {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #000;
+    color: #f6a000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.icons a:hover i {
+    transform: scale(1.08);
+}
+
+.contato-rapido p {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.contato-rapido strong {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/* ==========================================================================
+   9. MEDIA QUERIES (MÁGICA DA RESPONSIVIDADE - MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(5px);
+    }
+
+    i#burguer {
+        display: block;
+    }
+
+    /* ALTERADO: Usando ID aqui também para que o Mobile consiga controlar o menu lateral */
+    #menu-links.nav-links {
+        display: flex !important;
+        /* Mantém o flex ativo para organizar em coluna */
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70vw;
+        height: 100vh;
+        background-color: #111111;
+        z-index: 10000;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 40px;
+
+        /* Estado inicial escondido */
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+        box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    #menu-links.nav-links a {
+        font-size: 1.5rem;
+        color: #f0b33b;
+        font-size: 24px;
+        /* Aumenta o tamanho da fonte significativamente */
+        font-weight: 800;
+        /* Deixa a fonte mais encorpada/negrito */
+        text-decoration: none;
+        /* REMOVE O SUBLINHADO (deixa o visual mais moderno e limpo) */
+        letter-spacing: 1px;
+        /* Dá um leve espaço elegante entre as letras */
+        display: block;
+        padding: 15px 40px;
+        /* Aumenta a área de clique para o dedo tocar fácil */
+        transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    /* Efeito opcional: Quando o usuário tocar no link, ele dá uma leve aumentada */
+    #menu-links.nav-links a:active {
+        transform: scale(1.05);
+        color: #ffffff;
+        /* Pisca em branco no momento do toque */
+
+    }
+
+    /* Quando o JS colocar a classe active, ele substitui o transform anterior */
+    #menu-links.nav-links.active {
+        transform: translateX(0);
+    }
+
+    /* ... restante dos seus estilos mobile abaixo ... */
+
+    /* Outros ajustes móveis do seu layout */
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .secao-favoritos h2,
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .about {
+        min-height: 40vh;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+    }
+
+    .coxinha-card,
+    .assado-card,
+    .lanche-card,
+    .pastel-card {
+        max-width: none;
+    }
+
+    .coxinha-card img,
+    .assado-card img,
+    .lanche-card img,
+    .pastel-card img {
+        height: 150px;
+    }
+
+    .pedido-img,
+    .sacola-img,
+    .whatsapp-img,
+    .delivery-img {
+        height: 140px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .footer-right {
+        text-align: center;
+        align-items: center;
+    }
+}
+
+/* ==========================================================================
+   10. ANIMAÇÃO DE ENTRADA DOS LINKS
+   ========================================================================== */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DO ACCORDION DE FAQ
+   ========================================================================== */
+.faq {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%; /* Garante que ele não quebre no layout flex do body */
+}
+
+.faq h2 {
+    color: #ff9f1c;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #222222;
+    padding-bottom: 10px;
+}
+
+.faq-question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #ff9f1c;
+}
+
+/* O Segredo do Accordion: Começa com altura 0 e escondido */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; /* Transição suave */
+}
+
+.faq-answer p {
+    color: #aaaaaa;
+    padding: 10px 0 15px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Estilo para a setinha rodar quando estiver ativo */
+.faq-question .arrow {
+    transition: transform 0.3s ease;
+    display: inline-block;
+    color: #ff9f1c;
+}
+
+/* Classe que o JavaScript vai aplicar no botão para girar a seta */
+.faq-question.active .arrow {
+    transform: rotate(180deg);
+}
