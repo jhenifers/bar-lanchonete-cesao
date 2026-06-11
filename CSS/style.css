@@ -79,7 +79,7 @@ i#burguer:hover {
    3. HERO SECTION (BANNER COM FOTO DE FUNDO)
    ========================================================================== */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('../Imagens/fundo1920x1080.jpeg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('../imagens/fundo1920x1080.jpeg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -257,7 +257,7 @@ i#burguer:hover {
    5. SEÇÃO SOBRE NÓS
    ========================================================================== */
 .about {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('./Imagens/assadosfundo.jpeg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('./imagens/assadosfundo.jpeg');
     background-size: cover;
     background-position: center;
     padding: 60px 20px;
