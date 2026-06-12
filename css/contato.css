@@ -21,9 +21,9 @@ body {
 }
 
 .logo {
-    width: 65px;
-    height: 65px;
-    background-image: url(./logo/Logo-Cesão.png);
+    width: 70px;
+    height: 70px;
+    background-image: url(../imagens/logo.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -495,51 +495,122 @@ textarea {
     font-weight: 800;
 }
 
-/* --- RESPONSIVIDADE --- */
-@media (max-width: 850px) {
-    .info-maps-container {
+/* ==========================================================================
+   9. MEDIA QUERIES (MÁGICA DA RESPONSIVIDADE - MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(5px);
+    }
+
+    i#burguer {
+        display: block;
+    }
+
+    /* O menu em coluna e escondido AGORA SÓ EXISTE NO MOBILE */
+    #menu-links.nav-links {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70vw;
+        height: 100vh;
+        background-color: #111111;
+        z-index: 10000;
+
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 40px;
+
+        /* Estado inicial escondido na lateral */
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+        box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.7);
     }
-    .map-box {
-        height: 300px;
+
+    #menu-links.nav-links a {
+        font-size: 1.5rem;
+        color: #f0b33b;
+        font-size: 24px;
+        font-weight: 800;
+        text-decoration: none;
+        letter-spacing: 1px;
+        display: block;
+        padding: 15px 40px;
+        transition: transform 0.2s ease, color 0.2s ease;
     }
-    /* Faz cada caixa de seleção ocupar uma linha inteira em dispositivos móveis */
-    .pedido-item {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-        padding-bottom: 16px;
-        margin-bottom: 8px;
+
+    #menu-links.nav-links a:active {
+        transform: scale(1.05);
+        color: #ffffff;
     }
-    .btn-remove-item {
-        width: 100%;
-        height: 40px;
+
+    /* Quando o JS colocar a classe active */
+    #menu-links.nav-links.active {
+        transform: translateX(0);
     }
-    .footer {
-        flex-direction: column;
-        padding: 40px 20px;
+
+    /* Outros ajustes móveis do seu layout */
+    .hero-content h1 {
+        font-size: 1.8rem;
     }
-    .footer-right {
-        text-align: left;
-        align-items: flex-start;
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .secao-favoritos h2,
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .about {
+        min-height: 40vh;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+    }
+
+    .coxinha-card,
+    .assado-card,
+    .lanche-card,
+    .pastel-card {
+        max-width: none;
+    }
+
+    .coxinha-card img,
+    .assado-card img,
+    .lanche-card img,
+    .pastel-card img {
+        height: 150px;
+    }
+
+    .pedido-img,
+    .sacola-img,
+    .whatsapp-img,
+    .delivery-img {
+        height: 140px;
     }
 }
 
+/* ==========================================================================
+   10. ANIMAÇÃO DE ENTRADA DOS LINKS
+   ========================================================================== */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
 
-/* Responsividade para Celulares */
-@media (max-width: 850px) {
-    .pedido-item {
-        flex-direction: column;
-        align-items: stretch;
-        border-bottom: 1px solid #262626;
-        padding-bottom: 15px;
-    }
-    .controle-qtd {
-        width: 120px; /* No celular ele fica centralizado ou alinhado à esquerda de forma compacta */
-        margin-top: 5px;
-    }
-    .esconder-celular {
-        display: none;
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
+
