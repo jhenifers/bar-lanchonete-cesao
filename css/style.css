@@ -399,13 +399,11 @@ i#burguer:hover {
     color: #aaaaaa;
 }
 
-/* ==========================================================================
-   8. RODAPÉ
-   ========================================================================== */
+/*--- FOOTER --- */
 .footer {
     background: #f6a000;
     color: #1d1200;
-    padding: 50px 40px;
+    padding: 50px 80px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -438,7 +436,7 @@ i#burguer:hover {
 .footer-right {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 35px;
     text-align: right;
     align-items: flex-end;
 }
@@ -454,7 +452,7 @@ i#burguer:hover {
     gap: 14px;
 }
 
-.icons i {
+.icons a {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -463,14 +461,32 @@ i#burguer:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
     font-size: 1.1rem;
     transition: transform 0.2s;
 }
 
-.icons a:hover i {
+.icons a:hover {
     transform: scale(1.08);
 }
 
+/* Centralização e tamanho ideal para a logo inteira do iFood */
+.icons a.btn-ifood {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icons a.btn-ifood svg {
+    fill: #f6a000; /* Cor amarela do Cesão */
+    transition: transform 0.2s;
+    width: 25px;   /* Tamanho perfeito para o texto e o sorriso aparecerem nítidos */
+    height: auto;
+}
+
+.icons a.btn-ifood:hover svg {
+    transform: scale(1.08);
+}
 
 
 .contato-rapido p {

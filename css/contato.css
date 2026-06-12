@@ -496,20 +496,78 @@ textarea {
 }
 
 /* ==========================================================================
-   9. MEDIA QUERIES (MÁGICA DA RESPONSIVIDADE - MOBILE)
+   2. NAVBAR & MENU DESKTOP (CORRIGIDO)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #000000; /* Forçado preto para proteger o formulário */
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    background-image: url(../imagens/logo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#menu-links.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+#menu-links.nav-links a {
+    color: #f0b33b;
+    text-decoration: none; /* Removido underline estático do desktop */
+    font-weight: 700;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+#menu-links.nav-links a:hover {
+    color: #ffffff;
+}
+
+i#burguer {
+    display: none;
+    color: #f0b33b;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+/* Espaçador para o conteúdo não sumir debaixo da navbar fixa */
+main {
+    margin-top: 120px; 
+}
+
+
+/* ==========================================================================
+   9. MEDIA QUERIES (MÁGICA DA RESPONSIVIDADE - MOBILE CORRIGIDO)
    ========================================================================== */
 @media (max-width: 768px) {
     .navbar {
         padding: 15px 20px;
-        background-color: rgba(0, 0, 0, 0.85);
+        background-color: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(5px);
     }
 
     i#burguer {
-        display: block;
+        display: block !important; /* Garante visibilidade */
     }
 
-    /* O menu em coluna e escondido AGORA SÓ EXISTE NO MOBILE */
+    /* Transforma os links na barra lateral mobile */
     #menu-links.nav-links {
         display: flex !important;
         position: fixed;
@@ -523,82 +581,107 @@ textarea {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 30px;
+        gap: 35px;
         padding: 40px;
 
-        /* Estado inicial escondido na lateral */
+        /* Escondido por padrão na direita */
         transform: translateX(100%);
         transition: transform 0.4s ease-in-out;
         box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.7);
     }
 
-    #menu-links.nav-links a {
-        font-size: 1.5rem;
-        color: #f0b33b;
-        font-size: 24px;
-        font-weight: 800;
-        text-decoration: none;
-        letter-spacing: 1px;
-        display: block;
-        padding: 15px 40px;
-        transition: transform 0.2s ease, color 0.2s ease;
-    }
-
-    #menu-links.nav-links a:active {
-        transform: scale(1.05);
-        color: #ffffff;
-    }
-
-    /* Quando o JS colocar a classe active */
+    /* Quando o seu script.js colocar a classe .active via clique */
     #menu-links.nav-links.active {
         transform: translateX(0);
     }
 
-    /* Outros ajustes móveis do seu layout */
-    .hero-content h1 {
-        font-size: 1.8rem;
+    #menu-links.nav-links a {
+        font-size: 22px;
+        font-weight: 800;
+        text-decoration: none;
+        letter-spacing: 1px;
+        display: block;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
     }
 
-    .hero-content p {
-        font-size: 1rem;
+    /* Ajustes finos do Formulário de Pedidos no Celular */
+    main {
+        margin-top: 100px;
     }
 
-    .secao-favoritos h2,
-    .about-content h2 {
-        font-size: 1.8rem;
+    .reserve-header h1 {
+        font-size: 2rem;
     }
 
-    .about {
-        min-height: 40vh;
+    .form-container {
+        padding: 0 15px;
+        margin-bottom: 50px;
     }
 
-    .category-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    /* Faz os campos triplos de Categoria/Subcategoria/Produto quebrarem linha em telas pequenas */
+    .pedido-item {
+        flex-direction: column;
+        align-items: stretch;
         gap: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .coxinha-card,
-    .assado-card,
-    .lanche-card,
-    .pastel-card {
-        max-width: none;
+    .select-dinamico {
+        width: 100% !important;
     }
 
-    .coxinha-card img,
-    .assado-card img,
-    .lanche-card img,
-    .pastel-card img {
-        height: 150px;
+    .controle-qtd {
+        width: 100%;
+        height: 48px;
+        justify-content: space-between;
     }
 
-    .pedido-img,
-    .sacola-img,
-    .whatsapp-img,
-    .delivery-img {
-        height: 140px;
+    .esconder-celular {
+        display: none !important;
+    }
+
+    .btn-add-more {
+        width: 100%;
+        justify-content: center;
+        padding: 14px;
+    }
+
+    /* Responsividade do bloco de mapas */
+    .info-maps-container {
+        flex-direction: column;
+        gap: 25px;
+        margin-bottom: 50px;
+    }
+
+    .map-box {
+        min-height: 280px;
+        width: 100%;
+    }
+
+    /* Responsividade do Footer */
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .footer-right {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .icons {
+        justify-content: center;
     }
 }
-
 /* ==========================================================================
    10. ANIMAÇÃO DE ENTRADA DOS LINKS
    ========================================================================== */

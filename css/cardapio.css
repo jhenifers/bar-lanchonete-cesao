@@ -257,6 +257,25 @@ main {
     transform: scale(1.08);
 }
 
+/* Centralização e tamanho ideal para a logo inteira do iFood */
+.icons a.btn-ifood {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icons a.btn-ifood svg {
+    fill: #f6a000; /* Cor amarela do Cesão */
+    transition: transform 0.2s;
+    width: 25px;   /* Tamanho perfeito para o texto e o sorriso aparecerem nítidos */
+    height: auto;
+}
+
+.icons a.btn-ifood:hover svg {
+    transform: scale(1.08);
+}
+
+
 .contato-rapido p {
     font-size: 1rem;
     font-weight: 700;
